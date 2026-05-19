@@ -22,23 +22,17 @@ print(df_transaksi)
 print("\n")
 
 # =============================================================
-# TUGAS ADVANCED DATA ANALYTICS
+# DATA ANALYTICS
 # =============================================================
 
-# TUGAS 1: RELATIONAL MERGE (SQL JOIN)
-# Gabungkan df_transaksi dengan df_produk berdasarkan kolom 'product_id'.
-# Gunakan metode inner join agar hanya data yang berpasangan yang diambil.
-df_gabung = pd.merge(df_transaksi, df_produk, on='product_id', how='inner') # <--- UBAH BARIS INI (Gunakan pd.merge())
 
-# TUGAS 2: FEATURE ENGINEERING
-# Buat kolom baru bernama 'total_bayar' hasil perkalian 'qty' dan 'harga_satuan'
-df_gabung['total_bayar'] = df_gabung['qty'] * df_gabung['harga_satuan'] # <--- UBAH BARIS INI
+df_gabung = pd.merge(df_transaksi, df_produk, on='product_id', how='inner')
 
-# TUGAS 3: MULTI-AGGREGATION DASBOR
+
+df_gabung['total_bayar'] = df_gabung['qty'] * df_gabung['harga_satuan'] 
+
+# MULTI-AGGREGATION DASBOR
 # Buat rangkuman analitik per KATEGORI yang menampilkan dua hal sekaligus:
-# A. Total Pendapatan (sum dari 'total_bayar')
-# B. Rata-rata Pembelian (mean dari 'total_bayar')
-# Petunjuk: Gunakan .groupby('kategori')['total_bayar'].agg(['sum', 'mean'])
 dasbor_analitik = df_gabung.groupby('kategori')['total_bayar'].agg(['sum', 'mean']) # <--- UBAH BARIS INI
 
 print("--- HASIL PENGGABUNGAN DATA ---")

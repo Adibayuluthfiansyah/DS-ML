@@ -17,24 +17,19 @@ print(df)
 print("\n")
 
 # ==========================================
-# TUGAS DATA WRANGLING
+# DATA WRANGLING
 # ==========================================
 
-# TUGAS 1: DATA CLEANING
-# Sistem POS (Point of Sales) kadang gagal mencatat qty. 
-# Asumsi bisnis: Jika qty kosong (NaN), berarti pelanggan membeli 1 barang.
-# Isi/replace semua nilai NaN di kolom 'qty' dengan angka 1.
+# DATA CLEANING
 df['qty'] = df['qty'].fillna(1) # <--- UBAH BARIS INI (Gunakan method .fillna())
 
-# TUGAS 2: FEATURE ENGINEERING (Vectorization)
-# Buat kolom baru bernama 'revenue' yang merupakan hasil kali kolom 'harga' dan 'qty'
-# Lakukan tanpa for-loop!
-df['revenue'] = df['harga'] * df['qty'] # <--- UBAH BARIS INI
+# FEATURE ENGINEERING (Vectorization)
+df['revenue'] = df['harga'] * df['qty'] 
 
-# TUGAS 3: AGGREGATION (Group By)
+# AGGREGATION (Group By)
 # Bos E-Commerce meminta laporan: "Berapa total revenue untuk masing-masing kategori?"
-# Kelompokkan data berdasarkan 'kategori', lalu jumlahkan (sum) 'revenue'-nya.
-laporan_revenue = df.groupby('kategori')['revenue'].sum() # <--- UBAH BARIS INI (Gunakan .groupby() dan .sum())
+
+laporan_revenue = df.groupby('kategori')['revenue'].sum() 
 
 print("--- DATA TRANSAKSI BERSIH ---")
 print(df)
