@@ -33,7 +33,7 @@ df_gabung['total_bayar'] = df_gabung['qty'] * df_gabung['harga_satuan']
 
 # MULTI-AGGREGATION DASBOR
 # Buat rangkuman analitik per KATEGORI yang menampilkan dua hal sekaligus:
-dasbor_analitik = df_gabung.groupby('kategori')['total_bayar'].agg(['sum', 'mean']) # <--- UBAH BARIS INI
+dasbor_analitik = df_gabung.groupby('kategori')['total_bayar'].agg(['sum', 'mean']) 
 
 print("--- HASIL PENGGABUNGAN DATA ---")
 print(df_gabung[['transaction_id', 'nama_produk', 'kategori', 'qty', 'total_bayar']])
