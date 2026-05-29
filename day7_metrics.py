@@ -21,9 +21,6 @@ akurasi = accuracy_score(y_test, prediksi)
 print(f"--- AKURASI BIASA: {akurasi * 100}% ---\n")
 
 
-
-
-# Gunakan fungsi confusion_matrix() dengan parameter jawaban asli dan tebakan model
 cm = confusion_matrix(y_test, prediksi)
 
 print("--- CONFUSION MATRIX ---")
@@ -31,7 +28,6 @@ print(cm)
 print("\n")
 
 
-# Gunakan fungsi classification_report() dengan parameter yang sama
 report = classification_report(y_test, prediksi)
 print("--- CLASSIFICATION REPORT ---")
 print(report)

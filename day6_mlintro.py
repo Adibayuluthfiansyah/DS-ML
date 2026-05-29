@@ -19,27 +19,12 @@ print("\n")
 # PIPELINE
 X = df.drop(columns=['beli'])
 y = df['beli']
-
-# --- LANGKAH 2: TRAIN-TEST SPLIT ---
-# Membelah 80% data Train, 20% data Test
-# random_state=42 digunakan agar pemisahan data selalu sama setiap kali script dijalankan (standar reproduksibilitas eksperimen)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# --- LANGKAH 3: TRAINING MODEL (Otak AI Belajar) ---
+
 model = LogisticRegression()
-
-# TUGAS 1: Latih model menggunakan data training (X_train dan y_train)
-# Gunakan method .fit()
-# TULIS KODEMU DI BAWAH INI:
 model.fit(X_train, y_train)
-
-# --- LANGKAH 4: PREDIKSI & EVALUASI ---
-# TUGAS 2: Suruh model memprediksi data ujian (X_test) menggunakan method .predict()
-# Simpan hasilnya di variabel bernama 'prediksi'
-# TULIS KODEMU DI BAWAH INI:
 prediksi = model.predict(X_test)
-
-# Kita kalkulasi akurasinya dengan membandingkan jawaban asli ujian (y_test) dengan tebakan model (prediksi)
 akurasi = accuracy_score(y_test, prediksi)
 
 print("--- HASIL UJIAN MODEL ---")
